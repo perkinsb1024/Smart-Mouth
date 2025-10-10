@@ -198,7 +198,6 @@ export default function Board() {
   useEffect(() => {
     if (hasLoadedState) {
       localStorage.setItem("players", JSON.stringify(players));
-      if (players.length <= 1) { setEditPlayers(true); }
     }
   }, [players]);
 
@@ -206,6 +205,9 @@ export default function Board() {
     const p = JSON.parse(localStorage.getItem("players"));
     if (p) {
       setPlayers(p);
+      if (p.length <= 1) { setEditPlayers(true); }
+    } else {
+      setEditPlayers(true);
     }
     setHasLoadedState(true);
     setDictionary(buildDictionary());
