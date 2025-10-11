@@ -27,7 +27,7 @@ export function Tile({ value, color, setValue }) {
 
 export function AnswerWord({ word }) {
   return (
-    <div className={`answer-word ${word.common ? 'highlighted' : ''}`}>{word.word}</div>
+    <div className={`answer-word ${word.common ? 'highlighted' : ''}`} onClick={() => window.open(`https://www.google.com/search?q=define%3A${word.word.toLowerCase()}`).focus()}>{word.word}</div>
   )
 }
 
@@ -218,37 +218,40 @@ export default function Board() {
   return (
     <>
       <title>Smart Mouth</title>
-      <div className="tile-container">
-        <Tile value={startLetter} color="orange" setValue={setStartLetter} />
-        <Tile value={endLetter} color="green" setValue={setEndLetter} />
-      </div>
-      <div className="controls">
-        <button onClick={deal}>Deal</button>
-        <button onClick={() => { setShowAnswers(!showAnswers); }}>{showAnswers ? 'Hide' : 'Show'} Answer List</button>
-        <button onClick={() => { setEditPlayers(!editPlayers); }}>Add or Remove Players</button>
-        <button onClick={() => { 
-          if (confirm("Are you sure you want to reset all scores?")) {
-            players.forEach(player => {
-              player.score = 0;
-            });
-            setPlayers([...players]);
-          }
-        }}>Reset Scores</button>
-        <div>
-          Minimum Word Length: <input type="number" min="1" max="20" value={minWordLength} onChange={e => setMinWordLength(e.target.value)} />
+      <div class="container">
+        <div className="tile-container">
+          <Tile value={startLetter} color="orange" setValue={setStartLetter} />
+          <Tile value={endLetter} color="green" setValue={setEndLetter} />
         </div>
-      </div>
-      <div>
-        <PlayerList players={players} setPlayers={setPlayers} />
-      </div>
-      <div>
-        <AnswerCount n={answers.length} />
-      </div>
-      <div>
-        <WordList show={showAnswers} wordList={answers} />
-      </div>
-      <div>
-        <PlayerEditList show={editPlayers} players={players} setPlayers={setPlayers} setShow={setEditPlayers} />
+        <div className="controls">
+          <button onClick={deal}>Deal</button>
+          <button onClick={() => { setShowAnswers(!showAnswers); }}>{showAnswers ? 'Hide' : 'Show'} Answer List</button>
+          <button onClick={() => { setEditPlayers(!editPlayers); }}>Add or Remove Players</button>
+          <button onClick={() => { 
+            if (confirm("Are you sure you want to reset all scores?")) {
+              players.forEach(player => {
+                player.score = 0;
+              });
+              setPlayers([...players]);
+            }
+          }}>Reset Scores</button>
+          <div className="break" />
+          <div>
+            Minimum Word Length: <input type="number" min="1" max="20" value={minWordLength} onChange={e => setMinWordLength(e.target.value)} />
+          </div>
+        </div>
+        <div>
+          <PlayerList players={players} setPlayers={setPlayers} />
+        </div>
+        <div>
+          <AnswerCount n={answers.length} />
+        </div>
+        <div>
+          <WordList show={showAnswers} wordList={answers} />
+        </div>
+        <div>
+          <PlayerEditList show={editPlayers} players={players} setPlayers={setPlayers} setShow={setEditPlayers} />
+        </div>
       </div>
     </>
   )
