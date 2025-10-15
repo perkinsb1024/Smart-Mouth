@@ -91,7 +91,8 @@ export function Settings({ show, players, setPlayers, setShow, minWordLength, se
                   player.name = e.target.value;
                   setPlayers([...players]);
                 }} />
-                <div class="remove-player-button" onClick={() => {
+                <div class={`remove-player-button ${players.length === 1 ? 'disabled' : ''}`} onClick={() => {
+                  if (players.length === 1) { return; }
                   if((player.name === "" && player.score === 0) || confirm(`Are you sure you want to remove player "${player.name || `Player ${i+1}`}"?`)) {
                     players.splice(i, 1);
                     setPlayers([...players]);
@@ -141,11 +142,12 @@ export function AnswerCount({ n, showAnswers, setShowAnswers }) {
   return (
     <div className="answer-count">
       <div>
-        There are {n} possible answers
+        There {n === 1 ? "is" : "are"} {n == 0 ? "no" : n} possible answer{n === 1 ? "" : "s"}
       </div>
+      {n > 0 &&
       <div className="show-hide-answers" onClick={() => { setShowAnswers(!showAnswers); }}>
         ({showAnswers ? 'hide' : 'show'})
-      </div>
+      </div>}
     </div>
   );
 }
