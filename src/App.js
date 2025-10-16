@@ -146,6 +146,8 @@ export default function Board() {
         <div className="controls">
           <button disabled={timer > 0} onClick={() => {
             if (useCountdown) {
+              setStartLetter('');
+              setEndLetter('');
               setTimer(3);
             } else {
               deal();
