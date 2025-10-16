@@ -54,7 +54,7 @@ export default function Board() {
   const [hasLoadedState, setHasLoadedState] = useState(false);
   const [dictionary, setDictionary] = useState({});
   const [useCountdown, setUseCountdown] = useState(false);
-  const [timer, setTimer] = useState(0);
+  const [timer, setTimer] = useState(-1 );
 
   function deal() {
     let start = ALPHABET.charAt(Math.floor(Math.random() * ALPHABET.length));
@@ -95,6 +95,10 @@ export default function Board() {
   useEffect(() => {
     setAnswers(buildWordList());
   }, [startLetter, endLetter, minWordLength]);
+
+  useEffect(() => {
+    if (startLetter && endLetter && answers.length === 0) { console.log(startLetter); deal(); }
+  }, [answers]);
 
   useEffect(() => {
     if (hasLoadedState) {
