@@ -272,6 +272,8 @@ body {
   background-color: #fff;
   padding: 50px;
   width: 385px;
+  max-height: 85vh;
+  overflow: scroll;
 }
 
 .settings input {
