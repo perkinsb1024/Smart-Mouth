@@ -65,7 +65,18 @@ body {
   position: absolute;
   top: 0;
   right: 0;
+  line-height: 0;
+  border-radius: 100%;
+  overflow: hidden;
   cursor: pointer;
+}
+
+.settings-button svg {
+  transition: all 0.3s;
+}
+
+.settings-button:hover svg {
+  rotate: 90deg;
 }
 
 .settings-button path {
@@ -318,4 +329,38 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.use-countdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.use-countdown input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.countdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.countdown.start {
+  opacity: 0;
+  font-size: 100vmin;
+}
+
+.countdown.end {
+  transition: all 0.5s;
+  opacity: 1;
+  font-size: 50vmin;
 }
