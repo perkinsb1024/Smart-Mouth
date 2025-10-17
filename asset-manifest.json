@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Smart-Mouth/static/css/main.0682f2c4.css",
-    "main.js": "/Smart-Mouth/static/js/main.9f2ea878.js",
+    "main.js": "/Smart-Mouth/static/js/main.1ae2064e.js",
     "index.html": "/Smart-Mouth/index.html",
     "main.0682f2c4.css.map": "/Smart-Mouth/static/css/main.0682f2c4.css.map",
-    "main.9f2ea878.js.map": "/Smart-Mouth/static/js/main.9f2ea878.js.map"
+    "main.1ae2064e.js.map": "/Smart-Mouth/static/js/main.1ae2064e.js.map"
   },
   "entrypoints": [
     "static/css/main.0682f2c4.css",
-    "static/js/main.9f2ea878.js"
+    "static/js/main.1ae2064e.js"
   ]
 }
