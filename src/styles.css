@@ -366,3 +366,26 @@ body {
   opacity: 1;
   font-size: 50vmin;
 }
+
+.word-checker {
+  display: flex;
+  justify-content: center;
+}
+
+.word-checker input {
+  height: 32px;
+  padding-right: 32px;
+  font-size: 18px;
+}
+
+.word-checker svg {
+  margin-left: -32px;
+}
+
+.word-checker .valid path {
+  stroke: #00aa00;
+}
+
+.word-checker .invalid path {
+  stroke: #9e2323;
+}

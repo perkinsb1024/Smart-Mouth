@@ -8,6 +8,7 @@ import { PlayerList } from './components/PlayerList'
 import { Settings } from './components/Settings';
 import { AnswerCount } from './components/AnswerCount';
 import { Countdown } from './components/Countdown';
+import { WordChecker } from './components/WordChecker';
 import "./styles.css";
 
 function buildDictionary() {
@@ -53,8 +54,8 @@ export default function Board() {
   const [players, setPlayers] = useState([{name: "", score: 0}]);
   const [hasLoadedState, setHasLoadedState] = useState(false);
   const [dictionary, setDictionary] = useState({});
-  const [useCountdown, setUseCountdown] = useState(false);
-  const [timer, setTimer] = useState(-1 );
+  const [useCountdown, setUseCountdown] = useState(true);
+  const [timer, setTimer] = useState(-1);
 
   function deal() {
     let start = ALPHABET.charAt(Math.floor(Math.random() * ALPHABET.length));
@@ -156,6 +157,9 @@ export default function Board() {
         </div>
         <div>
           <PlayerList players={players} setPlayers={setPlayers} />
+        </div>
+        <div>
+          <WordChecker wordList={answers} />
         </div>
         <div>
           <AnswerCount n={answers.length} showAnswers={showAnswers} setShowAnswers={setShowAnswers} />

@@ -14,11 +14,13 @@ export function Tile({ value, color, setValue }) {
     let c = (e.key || "").toUpperCase();
     if (isLetter(c)) {
       setValue(c)
+    } else if (c === "BACKSPACE") {
+      setValue('')
     }
   }
   return (
     <>
-      <input type="text" className="tile-hidden-input" id={`tile-hidden-input-${color}`} value={value} onKeyDown={updateLetter} onFocus={() => setSelected(true)} onBlur={() => setSelected(false)} readOnly />
+      <input type="text" className="tile-hidden-input" id={`tile-hidden-input-${color}`} value={value} onKeyDown={updateLetter} onFocus={() => setSelected(true)} onBlur={() => setSelected(false)} />
       <div className={`tile ${color} ${selected ? 'selected' : ''}`} onClick={() => document.getElementById(`tile-hidden-input-${color}`).focus()}>
         {value}
       </div>
