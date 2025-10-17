@@ -175,7 +175,7 @@ export default function Board() {
           <WordChecker wordList={answers} show={!showAnswers && answers.length} />
         </div>
         <div>
-          <HelpDialog show={showHelp} setShow={setShowHelp} />
+          <HelpDialog show={showHelp} setShow={setShowHelp} setShowSettings={setShowSettings} />
         </div>
         <div>
           <Settings show={showSettings} players={players} setPlayers={setPlayers} setShow={setShowSettings} minWordLength={minWordLength} setMinWordLength={setMinWordLength} useCountdown={useCountdown} setUseCountdown={setUseCountdown} />

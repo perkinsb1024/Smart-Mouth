@@ -1,4 +1,4 @@
-export function HelpDialog({ show, setShow }) {
+export function HelpDialog({ show, setShow, setShowSettings }) {
     if (!show) { return null; }
     return (
         <div className="help-dialog-container modal-container" onClick={() => setShow(false)}>
@@ -21,8 +21,9 @@ export function HelpDialog({ show, setShow }) {
                     Alternatively, next to the correct answer count, there is a "show" link, this will show all <div className="answer-word">valid words</div> with the more common words being <div className="answer-word highlighted">highlighted</div> in green.
                     Tapping or hovering over a word reveals a link that will open a new page with the word definition (an internet connection is required).
                 </div>
-                <div className="container">
-                    <input type="button" value="Close" onClick={() => setShow(false)} />
+                <div className="container buttons">
+                    <input type="button" value="Settings" onClick={() => { setShow(false); setShowSettings(true); }} />
+                    <input type="button" value="Done" onClick={() => setShow(false)} />
                 </div>
             </div>
         </div>

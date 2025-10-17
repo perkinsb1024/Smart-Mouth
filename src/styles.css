@@ -318,6 +318,11 @@ body {
   margin: 5px 0;
 }
 
+.modal .container.buttons {
+  display: flex;
+  gap: 10px;
+}
+
 .modal .container input[type="button"] {
   width: 100%;
 }
