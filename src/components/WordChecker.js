@@ -23,6 +23,8 @@ export function WordChecker({ wordList }) {
         </svg>
     )
 
+    if (wordList.length === 0) { return null; }
+
     return (
         <div className="word-checker">
             <input placeholder="Check an answer" value={answer} onChange={(e) => setAnswer(e.target.value.toUpperCase())} />
