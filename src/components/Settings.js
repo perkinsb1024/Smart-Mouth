@@ -2,8 +2,8 @@ export function Settings({ show, players, setPlayers, setShow, minWordLength, se
   if (!show) { return null; }
   return (
     <>
-      <div className="settings-container">
-        <div className="settings">
+      <div className="settings-container modal-container" onClick={() => setShow(false)}>
+        <div className="settings modal" onClick={(e) => e.stopPropagation()}>
           <div className="container player-edit-list">
             {players.map((player, i) => (
               <div key={i} className="player-row">

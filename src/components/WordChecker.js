@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'; 
 
-export function WordChecker({ wordList }) {
+export function WordChecker({ wordList, show }) {
     const [answer, setAnswer] = useState('');
 
     useEffect(() => {
@@ -23,7 +23,7 @@ export function WordChecker({ wordList }) {
         </svg>
     )
 
-    if (wordList.length === 0) { return null; }
+    if (!show) { return null; }
 
     return (
         <div className="word-checker">

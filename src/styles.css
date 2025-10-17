@@ -61,6 +61,24 @@ body {
   position: relative;
 }
 
+.help-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 0;
+  border-radius: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.help-button path {
+  fill: #444;
+}
+
+.help-button:hover path {
+  fill: #000;
+}
+
 .settings-button {
   position: absolute;
   top: 0;
@@ -91,13 +109,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;;
+  gap: 10px
 }
 
 .tile {
   display: flex;
   height: 175px;
   width: 125px;
-  margin-right: 10px;
   padding: 0;
   align-items: center;
   justify-content: center;
@@ -244,18 +262,26 @@ body {
 }
 
 .player .score-buttons {
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
 }
 
 .player .score-buttons input {
-  margin-right: 5px;
+  flex-grow: 1;
+  font-size: 14px;
+}
+
+.player .score-buttons input:last-child {
+  width: 100%;
 }
 
 .player .score-buttons input:last-child {
   margin-right: 0;
 }
 
-.settings-container {
+.modal-container {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -268,7 +294,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.settings {
+.modal {
   background-color: #fff;
   padding: 50px;
   width: 385px;
@@ -276,17 +302,23 @@ body {
   overflow: scroll;
 }
 
-.settings input {
+.modal input {
   font-size: 18px;
 }
 
-.settings .container:not(:last-child) {
+.modal .container:not(:last-child) {
   margin: 15px 0;
   padding-bottom: 15px;
   border-bottom: 1px solid #999;
 }
 
-.settings .container input[type="button"] {
+.modal .container .title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.modal .container input[type="button"] {
   width: 100%;
 }
 
