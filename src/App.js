@@ -115,9 +115,8 @@ export default function Board() {
     const p = JSON.parse(localStorage.getItem("players"));
     if (p) {
       setPlayers(p);
-      if (p.length <= 1) { setShowSettings(true); }
     } else {
-      setShowSettings(true);
+      setShowHelp(true);
     }
     const c = JSON.parse(localStorage.getItem("useCountdown"));
     if (c !== null) {
